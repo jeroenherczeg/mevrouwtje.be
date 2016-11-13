@@ -7,21 +7,16 @@
 require 'recipe/common.php';
 
 // Set configurations
-set('repository', 'git@domain.com:username/repository.git');
+set('repository', 'git@github.com:jeroenherczeg/mevrouwtje.be.git');
 set('shared_files', []);
 set('shared_dirs', []);
 set('writable_dirs', []);
 
 // Configure servers
 server('production', 'mevrouwtje.be')
-    ->user('username')
-    ->password()
-    ->env('deploy_path', '/var/www/prod.domain.com');
-
-server('beta', 'beta.domain.com')
-    ->user('username')
-    ->password()
-    ->env('deploy_path', '/var/www/beta.domain.com');
+    ->user('kesshi')
+    ->identityFile()
+    ->env('deploy_path', '/var/www/mevrouwtje.be');
 
 /**
  * Restart php-fpm on success deploy.
